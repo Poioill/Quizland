@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="quiz for students">
+    <meta name="keywords" content="quiz, quiz for students, for students, math quiz, quizzes">
+    <meta name="robots" content="none">
+    <meta name="Author" content="Me">
+    <meta name="Copyright" content="I">
+    <meta name="Address" content="юпитер">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% block styles %}{% endblock %}">
+    <link rel="stylesheet" href="{% static 'css/base_styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="fullsite">
+        <div class="header">
+            <div class="header_wrapper">
+                <div class="header_wrapper_wrap">
+                    <div class="wrapper_logo">
+                        <a href="/" class="logo-link">
+                            <img src="media/svg/logo.svg" alt="loggo" class="link">
+                        </a>
+                        <form action="" method="get">
+                            <input type="search" placeholder="Search..." >
+                            <button type="submit"></button>
+                        </form>
+                    </div>
+                    <nav class="categories">
+                        <ul class="content__list">
+                            <li class="header_item">
+                                <a href="#" class="item_link">Home</a>
+                            </li>
+                            <li class="header_item">
+                                <a href="/QUIZ.html" class="item_link">Catalog</a>
+                            </li>
+                            <li class="header_item">
+                                <a href="/QUIZ.html" class="item_link">Materials</a>
+                            </li>
+                            <li class="header_item">
+                                <a href="/QUIZ.html" class="item_link signin_bottom">Sign in</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            {% block content_1 %}
+            {% endblock %}
+            <div class="footer">
+                <div class="faq">
+                    <p class="title_foot">FAQ</p>
+                    <p class="privacy_foot">Privacy Policy</p>
+                    <p class="email_foot">Email: quizzland@gmail.com</p>
+                </div>
+                <div class="about_us">
+                    <p class="title_foot">ABOUT US</p>
+                    <p class="address_foot">Address: Kyrgyzstan, Bishkek, Maldybaeava, 34B    </p>
+                    <p class="contacts_foot">Contacts: +996 773 062 755, +996 999 090 897</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

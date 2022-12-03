@@ -1,0 +1,270 @@
+/*
+HTML5 Doctor Reset v1.6.1
+http://html5doctor.com/html-5-reset-stylesheet/
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+body {
+    line-height:1;
+}
+::-ms-clear{display: none;}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+nav ul {
+    list-style:none;
+}
+blockquote, q {
+    quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+del {
+    text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+ol li{list-style: none;}
+input, select {
+    vertical-align:middle;
+}
+
+/* FONT STYLE STARTS*/
+
+/* bellota-text-regular - latin */
+@font-face {
+    font-family: 'Bellota Text';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../fonts/bellota-text-v16-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/bellota-text-v16-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* bellota-text-700 - latin */
+  @font-face {
+    font-family: 'Bellota Text';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+         url('../fonts/bellota-text-v16-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/bellota-text-v16-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+* {box-sizing: border-box; text-decoration: none;}
+/* FONT STYLE ENDS*/
+
+
+
+/* CONTENT START */
+.fullsite{
+    background-color: white;
+    max-width: 100%;
+    max-height: 100vh;
+}
+
+body {
+    font-family: 'Bellota Text';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    background-color: #ffffff;
+}
+
+.header{
+    position: fixed;
+    z-index: 20;
+    margin: 0 auto;
+    width: 100%;
+    height: 114px;
+    background-color: #1E1F29;
+}
+.header_wrapper{
+    max-width: 1726px;
+    min-width: 1726px;
+    margin: auto;
+}
+.header_wrapper_wrap{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.content__list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.wrapper_logo{
+    display: flex;
+    flex-wrap: wrap;
+}
+.header_item{
+    margin-right: 106px;
+}
+.header_item:last-child{
+    margin-right: 114px;
+}
+.item_link{
+    font-weight: 400;
+    font-size: 24px;
+    color: white;
+}
+.item_link:hover{
+    color: #AEB1C5;
+}
+.logo-link{
+    margin-left: 90px;
+    margin-top: 24px;
+}
+ul li{
+    margin-bottom: 46px;
+}
+form {
+  position: relative;
+  width: 470px;
+  margin: 37px 90px 38px 90px;
+  background: #ffffff;
+  border-radius: 90px;
+}
+input, button {
+  border: none;
+  outline: none;
+  background: transparent;
+
+}
+input {
+  width: 100%;
+  height: 42px;
+  padding-left: 15px;
+
+}
+button {
+  height: 42px;
+  width: 42px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+button:before {
+    content: "";
+    display: inline-block;
+    margin-right: 14px;
+    margin-top: 4px;
+    width: 25px;
+    height: 25px;
+    background-image: url("media/svg/search.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+input::placeholder{
+    font-size: 14px;
+    font-weight: 400;
+}
+.main{
+    position: relative;
+    max-width: 1726px;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* FOOTER page*/
+.footer{
+    position: relative;
+    width: 1726px;
+    height: 400px;
+    background-color: #212D3F;
+    line-height: 60px;
+}
+.faq{
+    position: absolute;
+    left: 250px;
+    top: 100px;
+    text-align: left;
+    color: white;
+}
+.title_foot{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.about_us{
+    position: absolute;
+    right: 200px;
+    top: 100px;
+    text-align: left;
+    color: white;
+}
+.privacy_foot{
+    background: url(/img/svg/privacy.svg) left no-repeat;
+    padding: 0 60px 0;
+}
+.email_foot{
+    background: url(/img/svg/email.svg) left no-repeat;
+    padding: 0 60px 0;
+}
+.address_foot{
+    background: url(/img/svg/address.svg) left no-repeat;
+    padding: 0 60px 0;
+}
+.contacts_foot{
+    background: url(/img/svg/num.svg) left no-repeat;
+    padding: 0 60px 0;
+}

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Quizland
+{% endblock %}
+
+{% block styles %}
+{% static 'css/st.css' %}
+{% endblock %}
+
+{% block content_1 %}
+    <br>
+    <br>
+    <br>
+    <img src="media/img/mainpic.jpg" alt="thinking  kid" width="1726px" class="mainimg">
+    <div class="main_info">
+        <div class="main_info_text">
+            <div class="main_title">
+                <h1>Quizzes for students</h1>
+            </div>
+            <div class="main_it">
+            Equity-Oriented Evaluation and Practice Improvement!
+            Boost student confidence (and scores!)
+            with comprehensive assessment and practice.Ensure
+            alignment and access to resources for all teachers
+            </div>
+        </div>
+        <div class="main_button">
+            <a href="#" class="button-link"><p>Start the quiz!</p></a>
+        </div>
+    </div>
+
+    <div class="main_question">
+        <hr class="hrs">
+        <ol class="ques">
+            {% for answer in answers %}
+            <li>{{ answer.question }}</li>
+            {% endfor %}
+        </ol>
+        <hr class="hrs">
+    </div>
+    <div class="empty"></div>
+     <div class="main_answers_block">
+            <div class="main_answers">
+                {% for answer in answers %}
+                <div class="answers_categories">
+                    <div class="answer_row {% cycle 'odd' 'even' %}">
+                        <div class="answer">
+                            <div class="answer_title">
+                                <p class="question_title">{{ answer.question }}</p>
+                            </div>
+                            <img src="{{ answer.image.url }}" alt="" class="q_img" width="500px">
+                            <div class="answer_description">
+                                {{ answer.answer }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+     </div>
+    <br><br>
+
+    <div class="categories_block">
+        <div class="quizzes_entry">
+            <p class="entry">Quizland quizzes</p>
+        </div>
+        <div class="blocks_wrapper">
+            <p class="justtext">This section contains various topics and
+                rubrics for intellectual and entertaining pastime. Choose your
+                favourite subject and improve your erudition in your favourite
+                areas.</p>
+            <br>
+        {% for quiz in quiz_items %}
+        {% if forloop.counter|divisibleby:2 %}
+            <div class="category_odd">
+            <div class="odd_text">
+                <div class="text_gradient">
+                    {{ quiz.description }}
+                </div>
+                <div class="quiz_button">
+                    <a href="/math/quiz_math.html" class="quiz_link">
+                        <p class="button_link">Choose the level and pass</p>
+                        <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
+                    </a>
+                </div>
+            </div>
+            <div class="odd_pic">
+                <a href="about.html" class="pic_link">
+                    <div class="pic_name">{{ quiz.title }}</div>
+                    <img src="{{ quiz.image.url }}" alt="" class="img_pic">
+                </a>
+            </div>
+        </div>
+        {% else %}
+            <div class="category_odd">
+                <div class="odd_pic">
+                    <a href="about.html" class="pic_link">
+                        <div class="pic_name">{{ quiz.title }}</div>
+                        <img src="{{ quiz.image.url }}" alt="" class="img_pic">
+                    </a>
+                </div>
+                <div class="odd_text">
+                    <div class="text_gradient">
+                        {{ quiz.description }}
+                    </div>
+                    <div class="quiz_button">
+                        <a href="about.html" class="quiz_link">
+                            <p class="button_link">Choose the level and pass</p>
+                            <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
