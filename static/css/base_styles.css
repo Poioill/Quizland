@@ -253,18 +253,23 @@ input::placeholder{
     color: white;
 }
 .privacy_foot{
-    background: url(/img/svg/privacy.svg) left no-repeat;
+    background: url(/media/svg/privacy.svg) left no-repeat;
     padding: 0 60px 0;
 }
 .email_foot{
-    background: url(/img/svg/email.svg) left no-repeat;
+    background: url(/media/svg/email.svg) left no-repeat;
     padding: 0 60px 0;
 }
 .address_foot{
-    background: url(/img/svg/address.svg) left no-repeat;
+    background: url(/media/svg/address.svg) left no-repeat;
     padding: 0 60px 0;
 }
 .contacts_foot{
-    background: url(/img/svg/num.svg) left no-repeat;
+    background: url(/media/svg/num.svg) left no-repeat;
     padding: 0 60px 0;
+}
+.item_link_footer{
+    font-weight: 400;
+    font-size: 24px;
+    color: white;
 }

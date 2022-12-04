@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:wght@400;700&display=swap');
+    </style>
+    <link rel="stylesheet" href="{% static 'css/quizzes_styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}{% endblock %}</title>
+</head>
+<body>
+    <div class="content">
+        <div class="full_quiz_site">
+            <div class="empty_container"></div>
+            <div class="quiz_category">
+                <a href="/" class="back_icon_link">
+                    <img src="media/svg/arrow.svg" alt="back to main" class="back_link">
+                </a>
+                <h2 class="category_name">{% block subject_title %}{% endblock%}</h2>
+            </div>
+            <div class="quiz_description">
+                <div class="text_description">
+                    {% block description %}{% endblock %}
+                </div>
+            </div>
+            <div class="quiz_entry">
+                <div class="quiz_entry_wrapper">
+                    <img src="{% block polosa%}{% endblock %}" alt="poloska">
+                    <div class="quiz_luck">
+                        Choose one and pass!
+                        Good luck!
+                    </div>
+                </div>
+            </div>
+            <div class="quizzes_block">
+                <ul class="topic">
+                    <li class="pre_topics"><p>Grade 1</p>
+                        <ul class="levels">
+                            <li><a href="#" class="level_link">easy</a></li>
+                            <li><a href="#" class="level_link">hard</a></li>
+                        </ul>
+                    </li>
+                    <li class="pre_topics"><p>Grade 2</p>
+                        <ul class="levels">
+                            <li><a href="#" class="level_link">easy</a></li>
+                            <li><a href="#" class="level_link">hard</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

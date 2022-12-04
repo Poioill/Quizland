@@ -43,22 +43,36 @@
     <div class="empty"></div>
      <div class="main_answers_block">
             <div class="main_answers">
-                {% for answer in answers %}
                 <div class="answers_categories">
-                    <div class="answer_row {% cycle 'odd' 'even' %}">
-                        <div class="answer">
+
+                    <div class="answer_row">
+                        {% for answer in answers %}
+                        {% if not forloop.counter|divisibleby:2 %}
+                        <div class="odd">
                             <div class="answer_title">
-                                <p class="question_title">{{ answer.question }}</p>
+                                <p class="p">{{ answer.question }}</p>
                             </div>
                             <img src="{{ answer.image.url }}" alt="" class="q_img" width="500px">
                             <div class="answer_description">
                                 {{ answer.answer }}
                             </div>
                         </div>
-
+                        {% else %}
+                        <div class="even">
+                            <div class="even_wrap">
+                                <div class="answer_title">
+                                    <p class="p">{{ answer.question }}</p>
+                                </div>
+                                <img src="{{ answer.image.url }}" alt="" class="q_img" width="500px">
+                                <div class="answer_description">
+                                    {{ answer.answer }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
-                {% endfor %}
             </div>
      </div>
     <br><br>
@@ -81,15 +95,15 @@
                     {{ quiz.description }}
                 </div>
                 <div class="quiz_button">
-                    <a href="/math/quiz_math.html" class="quiz_link">
+                    <a href="{{ topic.get_absolute_url}}" class="quiz_link">
                         <p class="button_link">Choose the level and pass</p>
                         <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
                     </a>
                 </div>
             </div>
             <div class="odd_pic">
-                <a href="about.html" class="pic_link">
-                    <div class="pic_name">{{ quiz.title }}</div>
+                <a href="{{ topic.get_absolute_url}}" class="pic_link">
+                    <div class="pic_name">{{ quiz.category_name }}</div>
                     <img src="{{ quiz.image.url }}" alt="" class="img_pic">
                 </a>
             </div>
@@ -97,8 +111,8 @@
         {% else %}
             <div class="category_odd">
                 <div class="odd_pic">
-                    <a href="about.html" class="pic_link">
-                        <div class="pic_name">{{ quiz.title }}</div>
+                    <a href="{{ topic.get_absolute_url}}" class="pic_link">
+                        <div class="pic_name">{{ quiz.category_name }}</div>
                         <img src="{{ quiz.image.url }}" alt="" class="img_pic">
                     </a>
                 </div>
@@ -107,7 +121,7 @@
                         {{ quiz.description }}
                     </div>
                     <div class="quiz_button">
-                        <a href="about.html" class="quiz_link">
+                        <a href="{{ topic.get_absolute_url}}" class="quiz_link">
                             <p class="button_link">Choose the level and pass</p>
                             <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
                         </a>
