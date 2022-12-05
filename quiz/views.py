@@ -11,12 +11,14 @@ def index(request):
 def privacy(request):
     return render(request, 'privacy.html')
 
+
 class Categories(ListView):
     model = Quiz_category
     template_name = 'index.html'
     context_object_name = 'quiz_items'
 
 
-class Topic(DetailView):
+class SubjectsDetailView(DetailView):
     model = Subject
     template_name = 'quizzes.html'
+    context_object_name = 'topic'
