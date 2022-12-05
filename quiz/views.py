@@ -19,6 +19,6 @@ class Categories(ListView):
 
 
 class SubjectsDetailView(DetailView):
-    model = Subject
+    model = Quiz_category
     template_name = 'quizzes.html'
-    context_object_name = 'topic'
+    context_object_name = 'quiz_items'

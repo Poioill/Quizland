@@ -96,14 +96,14 @@
                     {{ quiz.description }}
                 </div>
                 <div class="quiz_button">
-                    <a href="/" class="quiz_link">
+                    <a href="{% url 'subjects' quiz.id %}" class="quiz_link">
                         <p class="button_link">Choose the level and pass</p>
                         <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
                     </a>
                 </div>
             </div>
             <div class="odd_pic">
-                <a href="/" class="pic_link">
+                <a href="{% url 'subjects' quiz.id %}" class="pic_link">
                     <div class="pic_name">{{ quiz.category_name }}</div>
                     <img src="{{ quiz.image.url }}" alt="" class="img_pic">
                 </a>
@@ -113,7 +113,7 @@
             <li>
             <div class="category_odd">
                 <div class="odd_pic">
-                    <a href="/" class="pic_link">
+                    <a href="{% url 'subjects' quiz.id %}" class="pic_link">
                         <div class="pic_name">{{ quiz.category_name }}</div>
                         <img src="{{ quiz.image.url }}" alt="" class="img_pic">
                     </a>
@@ -123,7 +123,7 @@
                         {{ quiz.description }}
                     </div>
                     <div class="quiz_button">
-                        <a href="/" class="quiz_link">
+                        <a href="{% url 'subjects' quiz.id %}" class="quiz_link">
                             <p class="button_link">Choose the level and pass</p>
                             <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
                         </a>

@@ -1,22 +1,57 @@
-{% extends 'base_quizzes.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
-{% for topic in quiz_items %}
-{% block title %}
-{{ topic.subject_name }}
+{% block title%}
+{{ quiz_items.category_name }}
 {% endblock %}
 
-
-{% block subject_title %}
-{{ topic.subject_name }}
-{% endblock%}
-
-
-{% block description %}
-{{ topic.description }}
+{% block styles %}
+{% static 'css/quizzes_styles.css' %}
 {% endblock %}
 
-
-{% block polosa%}
-{{ topic.an_svg.url }}
+{% block content_1 %}
+    <br>
+    <br>
+    <br>
+    <div class="content">
+        <div class="full_quiz_site">
+            <div class="empty_container"></div>
+            <div class="quiz_category">
+                <a href="/" class="back_icon_link">
+                    <img src="/media/svg/arrow.svg" alt="back to main" class="back_link">
+                </a>
+                <h2 class="category_name">{{ quiz_items.category_name }}</h2>
+            </div>
+            <div class="quiz_description">
+                <div class="text_description">
+                    {{ quiz_items.description }}
+                </div>
+            </div>
+            <div class="quiz_entry">
+                <div class="quiz_entry_wrapper">
+                    <img src="{{ quiz_items.an_svg.url }}" alt="poloska">
+                    <div class="quiz_luck">
+                        Choose one and pass!
+                        Good luck!
+                    </div>
+                </div>
+            </div>
+            <div class="quizzes_block">
+                <ul class="topic">
+                    <li class="pre_topics"><p>Grade 1</p>
+                        <ul class="levels">
+                            <li><a href="#" class="level_link">easy</a></li>
+                            <li><a href="#" class="level_link">hard</a></li>
+                        </ul>
+                    </li>
+                    <li class="pre_topics"><p>Grade 2</p>
+                        <ul class="levels">
+                            <li><a href="#" class="level_link">easy</a></li>
+                            <li><a href="#" class="level_link">hard</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

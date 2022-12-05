@@ -210,10 +210,14 @@ ol li:last-child{
     width: 450px;
 }
 .text_gradient{
-    background: linear-gradient(179.55deg, #40475B 0.39%, rgba(64, 71, 91, 0) 76.52%);
+    background: linear-gradient(179.55deg, #40475B 0.39%, rgba(64, 71, 91, 0) 82.52%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    width: 450px;
+    height: 170px;
+    line-height: 1.1;
+    font-size: 26px;
 }
 .quiz_button {
     width: 400px;
