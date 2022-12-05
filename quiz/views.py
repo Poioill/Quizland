@@ -5,13 +5,11 @@ from django.views.generic import ListView, DetailView
 
 
 def index(request):
-    return render(request, 'index.html', {'answers': Answers.objects.all(), 'quiz_items': Quiz_category.objects.all(),
-                                          'subject': Subject.objects.all()})
+    return render(request, 'index.html', {'answers': Answers.objects.all(), 'quiz_items': Quiz_category.objects.all()})
 
 
 def privacy(request):
     return render(request, 'privacy.html')
-
 
 class Categories(ListView):
     model = Quiz_category

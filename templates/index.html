@@ -87,31 +87,33 @@
                 favourite subject and improve your erudition in your favourite
                 areas.</p>
             <br>
+        <ul>
         {% for quiz in quiz_items %}
         {% if forloop.counter|divisibleby:2 %}
-            <div class="category_odd">
+            <li><div class="category_odd">
             <div class="odd_text">
                 <div class="text_gradient">
                     {{ quiz.description }}
                 </div>
                 <div class="quiz_button">
-                    <a href="{{ topic.get_absolute_url}}" class="quiz_link">
+                    <a href="/" class="quiz_link">
                         <p class="button_link">Choose the level and pass</p>
                         <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
                     </a>
                 </div>
             </div>
             <div class="odd_pic">
-                <a href="{{ topic.get_absolute_url}}" class="pic_link">
+                <a href="/" class="pic_link">
                     <div class="pic_name">{{ quiz.category_name }}</div>
                     <img src="{{ quiz.image.url }}" alt="" class="img_pic">
                 </a>
             </div>
-        </div>
+            </div></li>
         {% else %}
+            <li>
             <div class="category_odd">
                 <div class="odd_pic">
-                    <a href="{{ topic.get_absolute_url}}" class="pic_link">
+                    <a href="/" class="pic_link">
                         <div class="pic_name">{{ quiz.category_name }}</div>
                         <img src="{{ quiz.image.url }}" alt="" class="img_pic">
                     </a>
@@ -121,15 +123,16 @@
                         {{ quiz.description }}
                     </div>
                     <div class="quiz_button">
-                        <a href="{{ topic.get_absolute_url}}" class="quiz_link">
+                        <a href="/" class="quiz_link">
                             <p class="button_link">Choose the level and pass</p>
                             <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
                         </a>
                     </div>
                 </div>
-            </div>
+            </div></li>
         {% endif %}
         {% endfor %}
+        </ul>
         </div>
     </div>
 {% endblock %}

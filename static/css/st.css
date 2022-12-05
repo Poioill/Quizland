@@ -1,4 +1,6 @@
 /* Main page*/
+ol li{list-style: none;}
+ul li{list-style: none;}
 
 .main_info{
     position: absolute;

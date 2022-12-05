@@ -82,6 +82,7 @@ hr {
     padding:0;
 }
 ol li{list-style: none;}
+ul li{list-style: none;}
 input, select {
     vertical-align:middle;
 }
