@@ -157,6 +157,7 @@ body {
 }
 .header_item{
     margin-right: 106px;
+    color: white;
 }
 .header_item:last-child{
     margin-right: 114px;
@@ -178,8 +179,8 @@ ul li{
 }
 form {
   position: relative;
-  width: 470px;
-  margin: 37px 90px 38px 90px;
+  width: 450px;
+  margin: 37px 10px 37px 40px;
   background: #ffffff;
   border-radius: 90px;
 }

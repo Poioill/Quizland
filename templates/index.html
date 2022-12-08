@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <div class="main_question">
+    <div class="main_question" data-aos="flip-up">
         <hr class="hrs">
         <ol class="ques">
             {% for answer in answers %}
@@ -90,7 +90,7 @@
         <ul>
         {% for quiz in quiz_items %}
         {% if forloop.counter|divisibleby:2 %}
-            <li><div class="category_odd">
+            <li><div class="category_odd" data-aos="fade-left">
             <div class="odd_text">
                 <div class="text_gradient">
                     {{ quiz.description }}
@@ -111,7 +111,7 @@
             </div></li>
         {% else %}
             <li>
-            <div class="category_odd">
+            <div class="category_odd" data-aos="fade-right">
                 <div class="odd_pic">
                     <a href="{% url 'subjects' quiz.id %}" class="pic_link">
                         <div class="pic_name">{{ quiz.category_name }}</div>
