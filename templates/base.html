@@ -46,7 +46,12 @@
                                 <a href="/QUIZ.html" class="item_link">Materials</a>
                             </li>
                             <li class="header_item">
-                                <a href="/QUIZ.html" class="item_link signin_bottom">Sign in</a>
+                                {% if user.is_authenticated %}
+                                    <p><a href="{% url 'logout' %}">Log Out</a></p>
+                                {% else %}
+                                    <a href="{% url 'login' %}">Log In</a> |
+                                    <a href="{% url 'signup' %}">Sign Up</a>
+                                {% endif %}
                             </li>
                         </ul>
                     </nav>
