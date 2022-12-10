@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:wght@400;700&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <title>Log in</title>
+</head>
+<body>
+    <div class="full_content">
+        <div class="wrapper">
+            <div class="wrapper_head">
+                <p class="head_title">Log in</p>
+            </div>
+            <div class="wrapper_data">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Sign in</button>
+                </form>
+                <div class="wrapper_link">
+                    <p>Don't have an account?</p>
+                    <a href="{% url 'signup' %}">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

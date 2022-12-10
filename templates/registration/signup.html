@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:wght@400;700&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <title>Sign up</title>
+</head>
+<body>
+    <div class="full_content">
+        <div class="wrapper">
+            <div class="wrapper_head">
+                <p class="head_title">Sign up</p>
+            </div>
+            <div class="wrapper_data">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Create account</button>
+                </form>
+                <div class="wrapper_link">
+                    <p>Already have an account?</p>
+                    <a href="{% url 'login' %}">Log in</a>
+                    <p class="lisences">By signing up, you agree to the
+                    <a href="" class="">License agreement</a>
+                    and <a href="" class="">Privacy policy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
