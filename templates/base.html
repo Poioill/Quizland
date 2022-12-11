@@ -47,10 +47,10 @@
                             </li>
                             <li class="header_item">
                                 {% if user.is_authenticated %}
-                                    <p><a href="{% url 'logout' %}">Log Out</a></p>
+                                    <p><a href="{% url 'logout' %}" class="item_link">Log Out</a></p>
                                 {% else %}
-                                    <a href="{% url 'login' %}">Log In</a> |
-                                    <a href="{% url 'signup' %}">Sign Up</a>
+                                    <a href="{% url 'login' %}" class="item_link">Log In</a> |
+                                    <a href="{% url 'signup' %}" class="item_link">Sign Up</a>
                                 {% endif %}
                             </li>
                         </ul>
