@@ -38,21 +38,14 @@
             </div>
             <div class="quizzes_block">
                 <ul class="topic">
-                    <li class="pre_topics"><p>Grade 1</p>
+                    {% for area in areas %}
+                    <li class="pre_topics"><p>{{ area.name }}</p>
                         <ul class="levels">
                             <li><a href="#" class="level_link">easy</a></li>
                             <li><a href="#" class="level_link">hard</a></li>
                         </ul>
                     </li>
-                    <li class="pre_topics"><p>Grade 2</p>
-                        <ul class="levels">
-                            <li><a href="#" class="level_link">easy</a></li>
-                            <li><a href="#" class="level_link">hard</a></li>
-                            <li><a href="#" class="level_link">hard</a></li>
-                            <li><a href="#" class="level_link">hard</a></li>
-                            <li><a href="#" class="level_link">hard</a></li>
-                        </ul>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

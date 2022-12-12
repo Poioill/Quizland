@@ -20,3 +20,20 @@ class Quiz_category(models.Model):
 
     def __str__(self):
         return self.category_name
+
+
+class SubjectArea(models.Model):
+    area = models.ForeignKey(Quiz_category, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class SubjectMaterial(models.Model):
+    subject = models.ForeignKey(Quiz_category, on_delete=models.CASCADE)
+    topic = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='', null=True)
+
+    def __str__(self):
+        return self.topic

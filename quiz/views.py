@@ -22,3 +22,15 @@ class SubjectsDetailView(DetailView):
     model = Quiz_category
     template_name = 'quizzes.html'
     context_object_name = 'quiz_items'
+
+
+class Area(ListView):
+    model = SubjectArea
+    template_name = 'quizzes.html'
+    context_object_name = 'areas'
+
+
+class SubjectMaterialView(ListView):
+    model = SubjectMaterial
+    template_name = 'materials.html'
+    context_object_name = 'subjects'
