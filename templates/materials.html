@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title%}
+Materials
+{% endblock %}
+
+{% block styles %}
+{% static 'css/materials.css' %}
+{% endblock %}
+
+{% block content_1 %}
+        <div class="content_wrapper">
+            <div class="content_entry">
+                <p>Materials & Resources</p>
+                <br>
+                <div class="entry_text">If you have some problems with any
+                    of subjects or just wanna povtorit some topic then
+                    in this page u can prepare kvsksmk!</div>
+            </div>
+            <div class="topic_wrapper">
+                <div class="topic_title">{{ subjects.subject }}</div>
+                <div class="list__wrapper">
+                    <ul class="list_topics">
+                        <a href="" class="topic_link">
+                            {% for subject in subjects %}
+                            <li class="topic">
+                                <img src="{{ subject.image.url }}" alt="">
+                                <div class="title__topic"><p>{{ subject.topic }}</p></div>
+                            </li>
+                            {% endfor %}
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+{% endblock %}

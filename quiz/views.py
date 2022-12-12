@@ -1,15 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 
 
 def index(request):
     return render(request, 'index.html', {'answers': Answers.objects.all(), 'quiz_items': Quiz_category.objects.all()})
 
 
-def privacy(request):
-    return render(request, 'privacy.html')
+class PrivacyTemplateView(TemplateView):
+    template_name = 'privacy.html'
+
+
+class MaterialsTemplateView(TemplateView):
+    template_name = 'materials.html'
+    subjects = SubjectMaterial.objects.all()
 
 
 class Categories(ListView):
@@ -24,13 +29,8 @@ class SubjectsDetailView(DetailView):
     context_object_name = 'quiz_items'
 
 
-class Area(ListView):
-    model = SubjectArea
-    template_name = 'quizzes.html'
-    context_object_name = 'areas'
-
-
-class SubjectMaterialView(ListView):
+class SubjectMaterialListView(ListView):
     model = SubjectMaterial
     template_name = 'materials.html'
     context_object_name = 'subjects'
+
