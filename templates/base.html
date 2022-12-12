@@ -37,13 +37,13 @@
                     <nav class="categories">
                         <ul class="content__list">
                             <li class="header_item">
-                                <a href="#" class="item_link">Home</a>
+                                <a href="{% url 'home' %}" class="item_link">Home</a>
                             </li>
                             <li class="header_item">
                                 <a href="/QUIZ.html" class="item_link">Catalog</a>
                             </li>
                             <li class="header_item">
-                                <a href="/QUIZ.html" class="item_link">Materials</a>
+                                <a href="{% url 'materials' %}" class="item_link">Materials</a>
                             </li>
                             <li class="header_item">
                                 {% if user.is_authenticated %}

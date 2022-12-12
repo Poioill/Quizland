@@ -1,3 +1,7 @@
+/*
+HTML5 Doctor Reset v1.6.1
+http://html5doctor.com/html-5-reset-stylesheet/
+*/
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -21,7 +25,6 @@ time, mark, audio, video {
 body {
     line-height:1;
 }
-::-ms-clear{display: none;}
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
     display:block;
@@ -77,100 +80,101 @@ hr {
     margin:1em 0;
     padding:0;
 }
-ol li{list-style: none;}
 input, select {
     vertical-align:middle;
 }
+ol li{list-style: none;}
+ul li{list-style: none;}
+input, select {
+    vertical-align:middle;
+}
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+}
+.element::-webkit-scrollbar {
+    width: 0;
+  }
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+/* CONTENT STARTS */
 
-/* FONT STYLE STARTS*/
-
-body {
-    font-family: 'Bellota Text';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 28px;
-    background-color: #BBDAF8;
+body{
+    background-color: #EBF0FF;
+    font-family: 'Bellota text';
 }
 
-.full{
-    width: 100%;
-}
-.wrapper{
-    position: relative;
-    width: 1728px;
-    height: 1117px;
-    margin: auto;
-    background-color: #BBDAF8;
-}
-.login_box{
-    position: absolute;
-    top: 120px;
-    left: 600px;
-    width: 570px;
-    height: 688px;
-    border-radius: 20px;
-    background-color: white;
-}
-.login_box:hover{
-    box-shadow: 0px 0px 20px rgba(13, 7, 74, 0.25);
-    transition-duration: 0.5s;
-}
-.login_header{
+.fullsite{
+    max-width: 100%;
+    max-height: 100vh;
     text-align: center;
-    color: white;
-    height: 70px;
-    top: 0px;
-    background: #1E1F29;
-    border-radius: 9px 9px 0px 0px;
 }
-.header{
-    font-size: 40px;
-    line-height: 60px;
-}
-.login_content{
-    position: inherit;
+.content_wrapper{
+    padding: 150px 0 30px;
     margin: 0 auto;
+    width: 1728px;
+    font-size: 28px;
 }
-.nickname, .password, .submit{
-    font-weight: 300;
-    font-size: 25px;
-    line-height: 45px;
-    color: #979797;
-    padding-left: 20px;
-    margin-left: 65px;
-    margin-top: 50px;
-    width: 400px;
-    height: 54px;
-    border: 2px solid rgba(139, 133, 160, 0.2);
-    border-radius: 9px;
+.content_entry{
+    margin-bottom: 50px;
 }
-.password{
-    margin-top: 20px;
+.content_entry p{
+    font-size: 40px;
+    font-weight: 600;
 }
-.submit{
-    margin-top: 20px;
+.topic_title{
+    width: 100vw;
+    position: relative;
+    left: calc(-50.5vw + 49.5%);
+    height: 70px;
+    background-color: #736BE2;
+    text-transform: uppercase;
     color: white;
-    border: none;
-    width: 426px;
-    height: 55px;
-    background: #515DD7;
-    border-radius: 9px;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 70px;
 }
-.submit:hover{
-    background: #2F39AC;
-    transition-duration: 0.3s;
+a:visited{
+    color: white;
 }
-.sign_up{
-    font-size: 24px;
-    position: absolute;
-    text-align: center;
-    bottom: 43px;
-    left: 150px;
-    color: #776E6E;
+.list__wrapper{
+    padding: 30px;
+    margin: 73px auto;
+    width: 1200px;
+    background-color: #B9B4FF;
+    border-radius: 5px;
 }
-.sign_up_link{
-    color: #515DD7;
+.list_topics{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-.sign_up_link:checked{
-    color: #515DD7;
+.title__topic{
+    background-color: #736BE2;
+    padding: 25px 0 12px;
+    border-radius: 8px;
+    margin-top: -20px;
+    box-shadow: inset 0px 0px 20px rgba(12, 18, 50, 0.26);
+}
+.topic{
+    margin-bottom: 30px;
+}
+.topic img{
+    width: 350px;
+    transition-duration: 0.2s;
+}
+.topic img:hover{
+    width: 370px;
+}
+.line-break{
+    width: 100%;
+    height: 40px;
 }
