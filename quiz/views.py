@@ -13,13 +13,12 @@ def index(request):
     return render(request, 'index.html', {'answers': Answers.objects.all(), 'quiz_items': Quiz_category.objects.all()})
 
 
+def materialview(request):
+    return render(request, 'materials.html', {'subjects': SubjectMaterial.objects.all(), 'quiz_items': Quiz_category.objects.all()})
+
+
 class PrivacyTemplateView(TemplateView):
     template_name = 'privacy.html'
-
-
-class MaterialsTemplateView(TemplateView):
-    template_name = 'materials.html'
-    subjects = SubjectMaterial.objects.all()
 
 
 class Categories(ListView):
@@ -73,3 +72,7 @@ class SubjectMaterialListView(ListView):
     template_name = 'materials.html'
     context_object_name = 'subjects'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['item'] = Quiz_category.objects.filter(item=self.object.category_name)
+        return context

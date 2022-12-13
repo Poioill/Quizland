@@ -35,6 +35,7 @@ class SubjectMaterial(models.Model):
     subject = models.ForeignKey(Quiz_category, on_delete=models.CASCADE)
     topic = models.CharField(max_length=50)
     image = models.ImageField(upload_to='', null=True)
+    url = models.CharField(max_length=1000, null=True)
 
     def __str__(self):
         return self.topic
