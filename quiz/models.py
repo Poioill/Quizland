@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.core.validators import FileExtensionValidator
-
+from django.contrib.auth.models import User
 
 class Answers(models.Model):
     question = models.CharField(max_length=50, null=True)
@@ -10,7 +10,8 @@ class Answers(models.Model):
 
     def __str__(self):
         return self.question
-
+    class Meta:
+        verbose_name_plural = 'Answers'
 
 class Quiz_category(models.Model):
     category_name = models.CharField(max_length=50, null=True)
@@ -37,3 +38,11 @@ class SubjectMaterial(models.Model):
 
     def __str__(self):
         return self.topic
+
+
+class Comments(models.Model):
+    comment = models.ForeignKey(Quiz_category, on_delete=models.CASCADE, blank=True, null=True, related_name='comments_quiz_category')
+    comment_text = models.TextField()
+    creation_date = models.DateTimeField(auto_now = True)
+    class Meta:
+        verbose_name_plural='Comments'
