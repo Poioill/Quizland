@@ -44,6 +44,24 @@ class SubjectMaterial(models.Model):
         return self.topic
 
 
+class LiteratureMaterial(models.Model):
+    topic = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='', null=True)
+    url = models.CharField(max_length=1000, null=True)
+
+    def __str__(self):
+        return self.topic
+
+
+class LanguagesMaterial(models.Model):
+    topic = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='', null=True)
+    url = models.CharField(max_length=1000, null=True)
+
+    def __str__(self):
+        return self.topic
+
+
 class Comments(models.Model):
     comment = models.ForeignKey(Quiz_category, on_delete=models.CASCADE, blank=True, null=True,
                                 related_name='comments_quiz_category')

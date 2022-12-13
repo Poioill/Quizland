@@ -178,3 +178,15 @@ a:visited{
     width: 100%;
     height: 40px;
 }
+.lit_material{
+    background-color: #092636;
+}
+.lit_mat{
+    background-color: #365A6F;
+}
+.lan_material{
+    background-color: #F2BC3B;
+}
+.lan_mat{
+    background-color: #FAE2A9;
+}

@@ -14,7 +14,9 @@ def index(request):
 
 
 def materialview(request):
-    return render(request, 'materials.html', {'subjects': SubjectMaterial.objects.all(), 'quiz_items': Quiz_category.objects.all()})
+    return render(request, 'materials.html', {'subjects': SubjectMaterial.objects.all(),\
+                  'quiz_items': Quiz_category.objects.all(), 'languages': LanguagesMaterial.objects.all(),\
+            'literature': LiteratureMaterial.objects.all()})
 
 
 class PrivacyTemplateView(TemplateView):
@@ -40,7 +42,7 @@ class CustomSuccessMessageMixin:
         return '%s?id=%s' % (self.sucess_url, self.object.id)
 
 
-class SubjectsDetailView(CustomSuccessMessageMixin, FormMixin,DetailView):
+class SubjectsDetailView(CustomSuccessMessageMixin, FormMixin, DetailView):
     model = Quiz_category
     template_name = 'quizzes.html'
     context_object_name = 'quiz_items'

@@ -19,17 +19,47 @@ Materials
                     in this page u can prepare kvsksmk!</div>
             </div>
             <div class="topic_wrapper">
-                <div class="topic_title"></div>
+                <div class="topic_title">Mathematics</div>
                 <div class="list__wrapper">
                     <ul class="list_topics">
-
+                        {% for i in subjects %}
                             <li class="topic">
-                                <a href="{{ subject.url }}" class="topic_link">
-                                    <img src="{{ subject.image.url }}" alt="">
-                                    <div class="title__topic"><p>{{ subject.topic }}</p></div>
+                                <a href="{{ i.url }}" class="topic_link">
+                                    <img src="{{ i.image.url }}" alt="">
+                                    <div class="title__topic"><p>{{ i.topic }}</p></div>
                                 </a>
                             </li>
-
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="topic_wrapper">
+                <div class="topic_title lit_material">Literature</div>
+                <div class="list__wrapper lit_mat">
+                    <ul class="list_topics">
+                        {% for i in literature %}
+                            <li class="topic">
+                                <a href="{{ i.url }}" class="topic_link">
+                                    <img src="{{ i.image.url }}" alt="">
+                                    <div class="title__topic lit_material"><p>{{ i.topic }}</p></div>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="topic_wrapper">
+                <div class="topic_title lan_material">Language</div>
+                <div class="list__wrapper lan_mat">
+                    <ul class="list_topics">
+                        {% for i in languages %}
+                            <li class="topic">
+                                <a href="{{ i.url }}" class="topic_link">
+                                    <img src="{{ i.image.url }}" alt="">
+                                    <div class="title__topic lan_material"><p>{{ i.topic }}</p></div>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

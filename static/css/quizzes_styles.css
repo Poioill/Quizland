@@ -213,6 +213,45 @@ body{
     text-shadow: 0px 2px 34px #0028B7;
     transition-duration: 0.4s;
 }
+.content_comments{
+    width: inherit;
+    margin: 0 auto;
+}
+.comment_title{
+    font-size: 27px;
+}
+.com_button{
+    background-color: #3951a8;
+    padding: 15px 10px;
+    color: white;
+    width: 150px;
+    margin-bottom: -20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+}
+.com_button:hover{
+    background-color: #0028B7;
+    transition-duration: 0.5s;
+}
+.hr_com{
+    width: 50%;
+    margin: 0 auto;
+}
+.comment_start{
+    padding-top: 20px;
+}
+.justblock{
+    margin-top: 6px;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #8690A9;
+}
+.flex_comment{
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
 
-
+}
 
