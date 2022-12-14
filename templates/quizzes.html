@@ -38,26 +38,29 @@
             </div>
             <div class="quizzes_block">
                 <ul class="topic">
-                    <li class="pre_topics"><p>Grade 1</p>
+                    <li class="pre_topics"><p>Level 1</p>
                         <ul class="levels">
-                            <li><a href="#" class="level_link">easy</a></li>
-                            <li><a href="#" class="level_link">hard</a></li>
+                            <li><a href="{{ quiz_items.quiz_1 }}" class="level_link">easy</a></li>
+                            <li><a href="{{ quiz_items.quiz_2 }}" class="level_link">middle</a></li>
+                            <li><a href="{{ quiz_items.quiz_3 }}" class="level_link">hard</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         <div>
+    <hr>
     <p>Comments</p>
     <hr>
-
     <form action="" id="add_form" method="post">
         {% csrf_token %}
-            {{ form }}
         <button form="add_form" type="submit" class="btn btn-success">Add comment!</button>
+        <br><br><br><br><br>
+        {{ form }}
     </form>
     {% for i in comment  %}
         <h2>{{ i.comment_text }}</h2>
     {% endfor %}
+    <hr>
     <p>Comments ({{ quiz_items.comments_quiz_category.all.count }})</p>
     <hr><br><br>
     <ul>
@@ -73,4 +76,4 @@
 </div>
     </div>
     </div>
-{% endblock %}g
+{% endblock %}

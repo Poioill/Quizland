@@ -77,3 +77,11 @@ class Comments(models.Model):
     class Meta:
         verbose_name_plural = 'Comments'
 
+
+class FooterInformation(models.Model):
+    name = models.CharField(max_length=50)
+    info = models.CharField(max_length=50)
+    icon = models.FileField(null=True, upload_to='svg/', validators=[FileExtensionValidator(['svg', 'pdf', 'doc'])])
+
+    def __str__(self):
+        return self.name

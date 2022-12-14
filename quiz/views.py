@@ -10,7 +10,7 @@ from django.views.generic.edit import FormMixin
 
 
 def index(request):
-    return render(request, 'index.html', {'answers': Answers.objects.all(), 'quiz_items': Quiz_category.objects.all()})
+    return render(request, 'index.html', {'answers': Answers.objects.all(), 'quiz_items': Quiz_category.objects.all(), 'footer_info': FooterInformation.objects.all()})
 
 
 def materialview(request):

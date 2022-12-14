@@ -40,7 +40,7 @@
                                 <a href="{% url 'home' %}" class="item_link">Home</a>
                             </li>
                             <li class="header_item">
-                                <a href="/QUIZ.html" class="item_link">Catalog</a>
+                                <a href="#catalog" class="item_link">Catalog</a>
                             </li>
                             <li class="header_item">
                                 <a href="{% url 'materials' %}" class="item_link">Materials</a>
@@ -68,8 +68,9 @@
                 </div>
                 <div class="about_us">
                     <p class="title_foot">ABOUT US</p>
-                    <p class="address_foot item_link_footer">Address: Kyrgyzstan, Bishkek, Maldybaeava, 34B    </p>
-                    <p class="contacts_foot item_link_footer">Contacts: +996 773 062 755, +996 999 090 897</p>
+                    {% for i in footer_info %}
+                    <p><img src="{{ i.icon.url }}" class="address_foot"> {{ i.name }}: {{ i.info }}</p>
+                    {% endfor %}
                 </div>
             </div>
     </div>
