@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.core.validators import FileExtensionValidator
@@ -21,6 +22,9 @@ class Quiz_category(models.Model):
     description = models.TextField(null=True)
     image = models.ImageField(upload_to='', null=True)
     an_svg = models.FileField(null=True, upload_to='svg/', validators=[FileExtensionValidator(['svg', 'pdf', 'doc'])])
+    quiz_1 = models.CharField(null=True, max_length=100)
+    quiz_2 = models.CharField(null=True, max_length=100)
+    quiz_3 = models.CharField(null=True, max_length=100)
 
     def __str__(self):
         return self.category_name
@@ -66,9 +70,10 @@ class Comments(models.Model):
     comment = models.ForeignKey(Quiz_category, on_delete=models.CASCADE, blank=True, null=True,
                                 related_name='comments_quiz_category')
     comment_text = models.TextField()
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, verbose_name='Автор комметария', null=True)
+    author_login = models.ForeignKey(get_user_model(), on_delete=models.SET_DEFAULT, default=1, blank=True, verbose_name='Автор комметария', null=True)
     status = models.BooleanField(default=False)
     creation_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name_plural = 'Comments'
+

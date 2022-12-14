@@ -46,37 +46,31 @@
                     </li>
                 </ul>
             </div>
-    <div class="content_comments">
-            <hr>
-            <p class="comment_title">Comments</p>
-            <hr>
+        <div>
+    <p>Comments</p>
+    <hr>
 
-            <form action="" id="add_form" method="post">
-                {% csrf_token %}
-                    {{ form }}
-                <br>
-                <br>
-                <br>
-                <button form="add_form" type="submit" class="com_button btn btn-success">Add comment!</button>
-            </form>
-            {% for i in comment  %}
-                <h2>{{ i.comment_text }}</h2>
-            {% endfor %}
-            <hr class="hr_com">
-            <p class="comment_start">Comments ({{ quiz_items.comments_quiz_category.all.count }})</p>
-            <hr>
-            <ul>
-                {% for i in quiz_items.comments_quiz_category.all %}
-                <li>
-                   <div class="flex_comment"><h6 class="comment_user">{{ i.author }}</h6> <div class="justblock"></div>{{ i.creation_date }}</div>
-                    <br>
-                    <br>
-                    {{ i.comment_text }}
-                </li>
-                <hr>
-                {% endfor %}
-            </ul>
-        </div>
+    <form action="" id="add_form" method="post">
+        {% csrf_token %}
+            {{ form }}
+        <button form="add_form" type="submit" class="btn btn-success">Add comment!</button>
+    </form>
+    {% for i in comment  %}
+        <h2>{{ i.comment_text }}</h2>
+    {% endfor %}
+    <p>Comments ({{ quiz_items.comments_quiz_category.all.count }})</p>
+    <hr><br><br>
+    <ul>
+        {% for i in quiz_items.comments_quiz_category.all %}
+        <li>
+           <p>Date od publication: {{ i.creation_date }}</p><br> <br>
+            {{ i.comment_text }}<br>
+            {{ i.author_login }}<br>
+        </li>
+        <hr>
+        {% endfor %}
+    </ul>
+</div>
     </div>
     </div>
 {% endblock %}g
