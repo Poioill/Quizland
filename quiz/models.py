@@ -5,6 +5,17 @@ from django.core.validators import FileExtensionValidator
 from accounts.models import CustomUser
 
 
+class MainPageInfo(models.Model):
+    title = models.CharField(max_length=20)
+    description = models.TextField(max_length=300)
+    button = models.CharField(max_length=20)
+
+
+class IntroductionCategories(models.Model):
+    title = models.CharField(max_length=20)
+    description = models.TextField(max_length=300)
+
+
 class Answers(models.Model):
     question = models.CharField(max_length=50, null=True)
     answer = models.TextField(null=True)

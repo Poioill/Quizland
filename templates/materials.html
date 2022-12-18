@@ -9,14 +9,14 @@ Materials
 {% static 'css/materials.css' %}
 {% endblock %}
 
-{% block content_1 %}
+{% block content %}
+    <div class="content">
         <div class="content_wrapper">
+            <div class="content_empty"></div>
             <div class="content_entry">
-                <p>Materials & Resources</p>
+                <div class="content_entry-title"><h2>Materials & Resources</h2></div>
                 <br>
-                <div class="entry_text">If you have some problems with any
-                    of subjects or just wanna povtorit some topic then
-                    in this page u can prepare kvsksmk!</div>
+                <br>
             </div>
             <div class="topic_wrapper">
                 <div class="topic_title">Mathematics</div>
@@ -64,4 +64,5 @@ Materials
                 </div>
             </div>
         </div>
+    </div>
 {% endblock %}

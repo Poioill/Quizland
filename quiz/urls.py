@@ -8,4 +8,5 @@ urlpatterns = [
     path('categories/<int:pk>/', SubjectsDetailView.as_view(), name='subjects'),
     path('materials/', views.materialview, name='materials'),
     path('privacy/', PrivacyTemplateView.as_view(), name='privacy'),
+    path('t_service/', TermsOfServiceTemplateView.as_view(), name='t_service'),
 ]

@@ -9,71 +9,85 @@
 {% static 'css/quizzes_styles.css' %}
 {% endblock %}
 
-{% block content_1 %}
-    <br>
-    <br>
-    <br>
-    <div class="content">
-        <div class="full_quiz_site">
-            <div class="empty_container"></div>
-            <div class="quiz_category">
-                <a href="/" class="back_icon_link">
-                    <img src="/media/svg/arrow.svg" alt="back to main" class="back_link">
-                </a>
-                <h2 class="category_name">{{ quiz_items.category_name }}</h2>
-            </div>
-            <div class="quiz_description">
-                <div class="text_description">
-                    {{ quiz_items.description }}
+{% block content %}
+        <div class="content">
+            <div class="content__wrapper">
+                <div class="content-empty"></div>
+                <div class="content-category">
+                    <a href="/">
+                        <img src="/media/svg/arrow.svg" alt="">
+                    </a>
+                    <div class="category-title">{{ quiz_items.category_name }}</div>
                 </div>
-            </div>
-            <div class="quiz_entry">
-                <div class="quiz_entry_wrapper">
+                <div class="content-info">{{ quiz_items.description }}</div>
+                <div class="content-svg">
                     <img src="{{ quiz_items.an_svg.url }}" alt="poloska">
-                    <div class="quiz_luck">
+                    <br><br>
+                    <div class="content-start-quizzes">
                         Choose one and pass!
+                        <br>
                         Good luck!
                     </div>
                 </div>
+                <div class="content-quizzes">
+                    <ul class="quiz_level">
+                        <a href="{{ quiz_items.quiz_1 }}" class="">
+                            <li class="level__number">
+                                <img src="/media/svg/round_quiz.svg" alt="" width="15">
+                                Easy
+                            </li>
+                        </a>
+                        <a href="{{ quiz_items.quiz_2 }}" class="">
+                            <li class="level__number">
+                                <img src="/media/svg/round_quiz.svg" alt="" width="15">
+                                Middle
+                            </li>
+                        </a>
+                        <a href="{{ quiz_items.quiz_2 }}" class="">
+                            <li class="level__number">
+                                <img src="/media/svg/round_quiz.svg" alt="" width="15">
+                                Hard
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="content-empty"></div>
+                <div class="content__comments">
+                    <hr>
+                    <p class="content__com-title">Comments</p>
+                    <hr>
+                    <form action="" id="add_form" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <br><br>
+                        <button form="add_form" type="submit" class="btn btn-success">
+                            <p class="button-my">Add comment</p>
+                        </button>
+                    </form>
+                    {% for i in comment  %}
+                        <h2>{{ i.comment_text }}</h2>
+                    {% endfor %}
+                    <hr>
+                    <p>All comments ({{ quiz_items.comments_quiz_category.all.count }})</p>
+                    <hr><br><br>
+                    <ul>
+                        {% for i in quiz_items.comments_quiz_category.all %}
+                        <li>
+                           <p class="comment_author">
+                               <img src="/media/svg/round_quiz.svg" alt="" width="8">
+                               {{ i.author_login }}
+                               <img src="/media/svg/round_quiz.svg" alt="" width="8">
+                               {{ i.creation_date }}
+                               <img src="/media/svg/round_quiz.svg" alt="" width="8">
+                           </p>
+                            <br><br>
+                            {{ i.comment_text }}<br>
+                            <br>
+                        </li>
+                        <hr>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-            <div class="quizzes_block">
-                <ul class="topic">
-                    <li class="pre_topics"><p>Level 1</p>
-                        <ul class="levels">
-                            <li><a href="{{ quiz_items.quiz_1 }}" class="level_link">easy</a></li>
-                            <li><a href="{{ quiz_items.quiz_2 }}" class="level_link">middle</a></li>
-                            <li><a href="{{ quiz_items.quiz_3 }}" class="level_link">hard</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        <div>
-    <hr>
-    <p>Comments</p>
-    <hr>
-    <form action="" id="add_form" method="post">
-        {% csrf_token %}
-        <button form="add_form" type="submit" class="btn btn-success">Add comment!</button>
-        <br><br><br><br><br>
-        {{ form }}
-    </form>
-    {% for i in comment  %}
-        <h2>{{ i.comment_text }}</h2>
-    {% endfor %}
-    <hr>
-    <p>Comments ({{ quiz_items.comments_quiz_category.all.count }})</p>
-    <hr><br><br>
-    <ul>
-        {% for i in quiz_items.comments_quiz_category.all %}
-        <li>
-           <p>Date od publication: {{ i.creation_date }}</p><br> <br>
-            {{ i.comment_text }}<br>
-            {{ i.author_login }}<br>
-        </li>
-        <hr>
-        {% endfor %}
-    </ul>
-</div>
-    </div>
-    </div>
+        </div>
 {% endblock %}

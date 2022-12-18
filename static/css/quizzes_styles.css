@@ -1,258 +1,85 @@
-/*
-HTML5 Doctor Reset v1.6.1
-http://html5doctor.com/html-5-reset-stylesheet/
-*/
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
-}
-body {
-    line-height:1;
-}
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section {
-    display:block;
-}
-nav ul {
-    list-style:none;
-}
-blockquote, q {
-    quotes:none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content:'';
-    content:none;
-}
-a {
-    margin:0;
-    padding:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
-}
-/* change colours to suit your needs */
-ins {
-    background-color:#ff9;
-    color:#000;
-    text-decoration:none;
-}
-/* change colours to suit your needs */
-mark {
-    background-color:#ff9;
-    color:#000;
-    font-style:italic;
-    font-weight:bold;
-}
-del {
-    text-decoration: line-through;
-}
-abbr[title], dfn[title] {
-    border-bottom:1px dotted;
-    cursor:help;
-}
-table {
-    border-collapse:collapse;
-    border-spacing:0;
-}
-/* change border colour to suit your needs */
-hr {
-    display:block;
-    height:1px;
-    border:0;
-    border-top:1px solid #cccccc;
-    margin:1em 0;
-    padding:0;
-}
-input, select {
-    vertical-align:middle;
-}
-
-ul li{list-style: none;}
-
-
-
-/* START */
-
-html{
-    box-sizing: border-box;
-}
-*,*::before, *::after{
-    box-sizing: inherit;
-    text-decoration: none;
-}
-
-
-/* CONTENT */
-
-body{
-    width: 100%;
-    height: 100%;
-    font-family: 'Bellota Text';
-    background-color: #D3EAFF;
-}
-
 .content{
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
+    flex: 1 0 auto;
+    background-color: #CFDDFF;
 }
-
-.full_quiz_site{
-    width: 1300px;
-    height: 100%;
-    margin: 0 auto;
+.content__wrapper{
+    width: 1200px;
+    color: #131338;
     background-color: white;
-}
-
-.empty_container{
-    height: 66px;
-    border-bottom: 2px solid #8690A9;
-}
-
-
-.quiz_category{
-    position: relative;
     margin: 0 auto;
-    height: 120px;
-    width: 1300px;
-    text-align: center;
-    border-bottom: 2px solid #8690A9;
+}
+.content-empty{
+    height: 130px;
+    border-bottom: 3px solid #8690A9;
+}
+.content-category{
+    border-bottom: 3px solid #8690A9;
+    color: #354495;
+    font-weight: 900;
+    font-size: 40px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 20px 0;
 }
-.back_icon_link {
-    position: absolute;
-    left: 40px;
+.content-category a{
+    padding-left: 20px;
 }
-.category_name{
-    position: absolute;
-    font-size: 42px;
-    text-transform: uppercase;
-    color: #3D505A;
-    width: 1000;
-}
-
-
-.quiz_description{
-    border-bottom: 2px solid #8690A9;
-}
-.text_description{
-    width: 1070px;
+.category-title{
     margin: 0 auto;
+}
+.content-info{
+    padding: 30px 0;
     text-align: center;
-    padding: 60px 0;
-    font-size: 24px;
-    line-height: 40px;
+    line-height: 1.4;
+    margin: 0 auto;
+    width: 1000px;
 }
-.quiz_entry{
-    height: 173px;
-}
-.quiz_entry_wrapper{
-    width: 1070px;
-    height: 120px;
-    margin: 40px auto;
-}
-.quiz_luck{
-    margin: 20px auto;
+.content-svg {
+    border-top: 3px solid #8690A9;
     text-align: center;
-    width: 272px;
-    font-size: 22px;
-    line-height: 35px;
+    padding: 30px 0;
+}
+.content-start-quizzes {
     font-size: 28px;
     line-height: 35px;
-    color: #2B3166;
+    text-align: center;
+    color: #464b79;
 }
-
-.quizzes_block{
-    width: 980px;
-    height: 100%;
+.content-quizzes {
+    width: 1000px;
+    padding: 40px 0;
     margin: 0 auto;
-    padding-bottom: 60px;
 }
-.pre_topics{
+.level__number {
     font-size: 28px;
-}
-.pre_topics p::before{
-    content: '';
-    display: inline-block;
-    width: 26px;
-    height: 26px;
-    background-color: #E77465;
-    border-radius: 50%;
-    margin: 20px 6px 0 0;
-}
-.levels{
-    margin: 15px 0 0 32px;
-}
-.level_link{
-    font-size: 28px;
-    line-height: 12px;
     color: #47445A;
-    font-weight: 300;
+    line-height: 1.7;
+    transition-duration: 0.6s;
 }
-.level_link:hover{
-    color: #7B75A4;
+.level__number:hover{
     text-shadow: 0px 2px 34px #0028B7;
-    transition-duration: 0.4s;
+    color: #7B75A4;
 }
-.content_comments{
-    width: inherit;
+.content__comments{
     margin: 0 auto;
+    text-align: center;
 }
-.comment_title{
-    font-size: 27px;
-}
-.com_button{
-    background-color: #3951a8;
-    padding: 15px 10px;
+.button-my {
+    background-color: #6950ce;
+    border-radius: 30px;
+    padding: 15px;
     color: white;
-    width: 150px;
-    margin-bottom: -20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 20px;
+    font-weight: 200;
+    transition-duration: 0.6s;
 }
-.com_button:hover{
-    background-color: #0028B7;
-    transition-duration: 0.5s;
+.button-my:hover {
+    background-color: #443096;
 }
-.hr_com{
-    width: 50%;
-    margin: 0 auto;
+.content__com-title {
+    font-size: 30px;
 }
-.comment_start{
-    padding-top: 20px;
+.comments__com-text {
+    border: 2px solid #b1b1ba;
+    padding: 20px;
+    border-radius: 16px;
 }
-.justblock{
-    margin-top: 6px;
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    background-color: #8690A9;
-}
-.flex_comment{
-    display: flex;
-    width: 250px;
-    justify-content: space-between;
-}
-
-
-

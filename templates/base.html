@@ -4,21 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" content="quiz for students">
-    <meta name="keywords" content="quiz, quiz for students, for students, math quiz, quizzes">
-    <meta name="robots" content="none">
-    <meta name="Author" content="Me">
-    <meta name="Copyright" content="I">
-    <meta name="Address" content="юпитер">
-    <title>{% block title %}{% endblock %}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:wght@400;700&display=swap');
+    </style>
     <link rel="stylesheet" href="{% static 'css/base_styles.css' %}">
     <link rel="stylesheet" href="{% block styles %}{% endblock %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <div class="fullsite">
@@ -29,10 +21,6 @@
                         <a href="/" class="logo-link">
                             <img src="/media/svg/logo.svg" alt="loggo" class="link">
                         </a>
-                        <form action="" method="get">
-                            <input type="search" placeholder="Search..." >
-                            <button type="submit"></button>
-                        </form>
                     </div>
                     <nav class="categories">
                         <ul class="content__list">
@@ -40,17 +28,21 @@
                                 <a href="{% url 'home' %}" class="item_link">Home</a>
                             </li>
                             <li class="header_item">
-                                <a href="#catalog" class="item_link">Catalog</a>
+                                <a href="/#catalog" class="item_link">Catalog</a>
                             </li>
                             <li class="header_item">
                                 <a href="{% url 'materials' %}" class="item_link">Materials</a>
                             </li>
                             <li class="header_item">
+                                <a href="{% url 'materials' %}" class="item_link">About us</a>
+                            </li>
+                            <li class="header_item">
                                 {% if user.is_authenticated %}
-                                    <p><a href="{% url 'logout' %}" class="item_link">Log Out</a></p>
+                                    <a href="{% url 'logout' %}" class="item_link signin_bottom">Log Out</a>
                                 {% else %}
-                                    <a href="{% url 'login' %}" class="item_link">Log In</a> |
-                                    <a href="{% url 'signup' %}" class="item_link">Sign Up</a>
+                                    <a href="{% url 'login' %}" class="item_link signin_bottom">Log In</a>
+                                    |
+                                    <a href="{% url 'signup' %}" class="item_link signin_bottom">Sign Up</a>
                                 {% endif %}
                             </li>
                         </ul>
@@ -58,25 +50,44 @@
                 </div>
             </div>
         </div>
-            {% block content_1 %}
-            {% endblock %}
-            <div class="footer">
-                <div class="faq">
-                    <p class="title_foot">FAQ</p>
-                    <p class="privacy_foot"><a href="privacy" class="item_link signin_bottom">Privacy Policy</a></p>
-                    <p class="email_foot item_link_footer">Email: quizzland@gmail.com</p>
-                </div>
-                <div class="about_us">
-                    <p class="title_foot">ABOUT US</p>
-                    {% for i in footer_info %}
-                    <p><img src="{{ i.icon.url }}" class="address_foot"> {{ i.name }}: {{ i.info }}</p>
-                    {% endfor %}
+        {% block content %}{% endblock %}
+
+        <div class="footer">
+            <div class="footer_wrapper">
+                <div class="footer_wrapper_wrap">
+                    <div class="footer__term">
+                        <p class="footer_title">FAQ</p>
+                        <ul class="footer_list">
+                            <a href="{% url 'privacy' %}" class="item_link">
+                                <li>
+                                    <img src="/media/svg/round.svg" alt="" class="footer_svg">
+                                    <p class="footer_terms">Privacy Policy</p>
+                                </li>
+                            </a>
+                            <a href="{% url 't_service' %}" class="item_link">
+                                <li>
+                                    <img src="/media/svg/round.svg" alt="" class="footer_svg">
+                                    <p class="footer_terms">Terms of service</p>
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="footer__term">
+                        <p class="footer_title">Contact us</p>
+                        <ul class="footer_list">
+                            {% for i in footer_info %}
+                            <li>
+                                <img src="/media/svg/round.svg" alt="" class="footer_svg">
+                                <p class="footer_terms">{{ i.name }} : {{ i.info }}</p>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </div>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <script>AOS.init();</script>
 </body>
 </html>

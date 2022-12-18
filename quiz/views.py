@@ -10,17 +10,28 @@ from django.views.generic.edit import FormMixin
 
 
 def index(request):
-    return render(request, 'index.html', {'answers': Answers.objects.all(), 'quiz_items': Quiz_category.objects.all(), 'footer_info': FooterInformation.objects.all()})
+    return render(request, 'index.html', {'answers': Answers.objects.all(),
+                                          'quiz_items': Quiz_category.objects.all(),
+                                          'footer_info': FooterInformation.objects.all(),
+                                          'main_page': MainPageInfo.objects.all(),
+                                          'intro': IntroductionCategories.objects.all(),
+                                          })
 
 
 def materialview(request):
-    return render(request, 'materials.html', {'subjects': SubjectMaterial.objects.all(),\
-                  'quiz_items': Quiz_category.objects.all(), 'languages': LanguagesMaterial.objects.all(),\
-            'literature': LiteratureMaterial.objects.all()})
+    return render(request, 'materials.html', {'subjects': SubjectMaterial.objects.all(),
+                                              'quiz_items': Quiz_category.objects.all(),
+                                              'languages': LanguagesMaterial.objects.all(),
+                                              'literature': LiteratureMaterial.objects.all(),
+                                              'footer_info': FooterInformation.objects.all()})
 
 
 class PrivacyTemplateView(TemplateView):
     template_name = 'privacy.html'
+
+
+class TermsOfServiceTemplateView(TemplateView):
+    template_name = 'service.html'
 
 
 class Categories(ListView):
@@ -48,22 +59,17 @@ class SubjectsDetailView(CustomSuccessMessageMixin, FormMixin, DetailView):
     context_object_name = 'quiz_items'
     form_class = CommentsForm
     success_msg = 'Added'
-    comment = Comments.objects.all()
-    data = {
-        'form_class': form_class,
-        'comment': comment
-    }
 
     def get_success_url(self):
-        return reverse_lazy('subjects', kwargs={'pk':self.get_object().id})
+        return reverse_lazy('subjects', kwargs={'pk': self.get_object().id})
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
         if form.is_valid():
             return self.form_valid(form)
 
-    def form_valid(self,form):
-        self.object =form.save(commit=False)
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
         self.object.comment = self.get_object()
         self.object.save()
         return super().form_valid(form)

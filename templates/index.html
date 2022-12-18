@@ -2,48 +2,44 @@
 {% load static %}
 
 {% block title %}
-    Quizland
+Quizland
 {% endblock %}
 
 {% block styles %}
 {% static 'css/st.css' %}
 {% endblock %}
 
-{% block content_1 %}
-    <br>
-    <br>
-    <br>
-    <img src="media/img/mainpic.jpg" alt="thinking  kid" width="1726px" class="mainimg">
-    <div class="main_info">
-        <div class="main_info_text">
-            <div class="main_title">
-                <h1>Quizzes for students</h1>
+{% block content %}
+        <div class="content">
+            <div class="content_main-pic">
+                <div class="main-pic__wrapper">
+                    <img src="media/img/mainpic.jpg" alt="Thinking kid" width="1728">
+                    <div class="main-pic__wrapper-wrap">
+                        <div class="main-pic__questions">
+                            <hr class="main-pic__hr">
+                                <ul class="main-pic__list">
+                                    {% for question in answers %}
+                                    <li class="main-pic__element">{{ question.question }}</li>
+                                    {% endfor %}
+                                </ul>
+                            <hr class="main-pic__hr">
+                        </div>
+                    </div>
+                </div>
+                <div class="content_quiz-entry">
+                    {% for info in main_page %}
+                    <div class="quiz-entry__title"><h1>{{ info.title }}</h1></div>
+                    <div class="quiz-entry__text">
+                        {{ info.description }}
+                        <div class="quiz-entry__link">
+                            <a href="#catalog" class="link__link">{{ info.button }}</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="main_it">
-            Equity-Oriented Evaluation and Practice Improvement!
-            Boost student confidence (and scores!)
-            with comprehensive assessment and practice.Ensure
-            alignment and access to resources for all teachers
-            </div>
-        </div>
-        <div class="main_button">
-            <a href="#" class="button-link"><p>Start the quiz!</p></a>
-        </div>
-    </div>
-
-    <div class="main_question" data-aos="flip-up">
-        <hr class="hrs">
-        <ol class="ques">
-            {% for answer in answers %}
-            <li>{{ answer.question }}</li>
-            {% endfor %}
-        </ol>
-        <hr class="hrs">
-    </div>
-    <div class="empty"></div>
-     <div class="main_answers_block">
-            <div class="main_answers">
-                <div class="answers_categories">
+            <div class="content__answer">
+                <div class="answer__wrap">
                     <div class="answer_row">
                         {% for answer in answers %}
                         {% if not forloop.counter|divisibleby:2 %}
@@ -73,65 +69,57 @@
                     </div>
                 </div>
             </div>
-     </div>
-    <br><br>
+            <br><br>
+            <div class="content__quiz" id="catalog">
+                {% for i in intro %}
+                <div class="content__quiz-title">
+                    {{ i.title }}
+                </div>
+                <div class="quizzes__wrapper">
+                    <div class="quizzes-description">
+                        {{ i.description }}
+                    </div>
+                    {% for quiz in quiz_items %}
+                    {% if forloop.counter|divisibleby:2 %}
+                    <div class="quiz-row-odd" data-aos="fade-left">
+                        <div class="row_left">
+                            <a href="{% url 'subjects' quiz.id %}">
+                                <div class="row-title">{{ quiz.category_name }}</div>
+                                <img src="{{ quiz.image.url }}" alt="" width="400">
+                            </a>
+                        </div>
+                        <div class="row_right">
+                            <div class="row-description">
+                                {{ quiz.description }}
+                            </div>
+                            <div class="row-link">
+                                <a href="{% url 'subjects' quiz.id %}">Choose the level and pass</a>
+                                <img src="media/svg/arrow_2.svg" alt="" width="30">
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="quiz-row-odd" data-aos="fade-right">
+                        <div class="row_right">
+                            <div class="row-description">
+                                {{ quiz.description }}
+                            </div>
+                            <div class="row-link">
+                                <a href="{% url 'subjects' quiz.id %}">Choose the level and pass</a>
+                                <img src="media/svg/arrow_2.svg" alt="" width="30">
+                            </div>
+                        </div>
+                        <div class="row_left">
+                            <a href="{% url 'subjects' quiz.id %}">
+                                <div class="row-title">{{ quiz.category_name }}</div>
+                                <img src="{{ quiz.image.url }}" alt="" width="400">
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}{% endfor %}
+                </div>
+            </div>
+        </div>
 
-    <div class="categories_block">
-        <div class="quizzes_entry" id="catalog">
-            <p class="entry" >Quizland quizzes</p>
-        </div>
-        <div class="blocks_wrapper">
-            <p class="justtext">This section contains various topics and
-                rubrics for intellectual and entertaining pastime. Choose your
-                favourite subject and improve your erudition in your favourite
-                areas.</p>
-            <br>
-        <ul>
-        {% for quiz in quiz_items %}
-        {% if forloop.counter|divisibleby:2 %}
-            <li><div class="category_odd" data-aos="fade-left">
-            <div class="odd_text">
-                <div class="text_gradient">
-                    {{ quiz.description }}
-                </div>
-                <div class="quiz_button">
-                    <a href="{% url 'subjects' quiz.id %}" class="quiz_link">
-                        <p class="button_link">Choose the level and pass</p>
-                        <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
-                    </a>
-                </div>
-            </div>
-            <div class="odd_pic">
-                <a href="{% url 'subjects' quiz.id %}" class="pic_link">
-                    <div class="pic_name">{{ quiz.category_name }}</div>
-                    <img src="{{ quiz.image.url }}" alt="" class="img_pic">
-                </a>
-            </div>
-            </div></li>
-        {% else %}
-            <li>
-            <div class="category_odd" data-aos="fade-right">
-                <div class="odd_pic">
-                    <a href="{% url 'subjects' quiz.id %}" class="pic_link">
-                        <div class="pic_name">{{ quiz.category_name }}</div>
-                        <img src="{{ quiz.image.url }}" alt="" class="img_pic">
-                    </a>
-                </div>
-                <div class="odd_text">
-                    <div class="text_gradient">
-                        {{ quiz.description }}
-                    </div>
-                    <div class="quiz_button">
-                        <a href="{% url 'subjects' quiz.id %}" class="quiz_link">
-                            <p class="button_link">Choose the level and pass</p>
-                            <img src="media/svg/arrow_2.svg" alt="" class="icon_link">
-                        </a>
-                    </div>
-                </div>
-            </div></li>
-        {% endif %}
-        {% endfor %}
-        </ul>
-        </div>
-    </div>
 {% endblock %}
