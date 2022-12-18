@@ -96,3 +96,33 @@ class FooterInformation(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class PrivacyPolicy(models.Model):
+    title = models.CharField(max_length=40)
+    text = models.TextField(max_length=1000)
+
+
+class TermsOfService(models.Model):
+    title = models.CharField(max_length=40)
+    text = models.TextField(max_length=1000)
+
+
+class AboutUsReason(models.Model):
+    title = models.CharField(max_length=40)
+    text = models.TextField(max_length=1000)
+
+
+class AboutUsTitle(models.Model):
+    pre_title = models.CharField(max_length=40)
+    title = models.CharField(max_length=40)
+    text = models.TextField(max_length=1000)
+
+
+class AboutUsImages(models.Model):
+    image = models.ImageField(upload_to='')
+
+
+class AboutUsWHY(models.Model):
+    title = models.CharField(max_length=40)
+    text = models.TextField(max_length=1000)

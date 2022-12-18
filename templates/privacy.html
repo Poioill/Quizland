@@ -5,15 +5,31 @@
 Privacy Policy
 {% endblock %}
 
+{% block styles %}
+{% static 'css/privacy.css' %}
+{% endblock %}
 
-{% block content_1 %}
-<br>
-    <br>
-    <br>
-    <br>
-    <div class="content">
-        <div class="full_quiz_site">
-            <div class="empty_container"></div>
+{% block content %}
+<div class="content">
+            <div class="content__empty"></div>
+            <div class="content__wrapper">
+                <div class="wrapper__m-title">Privacy Policy</div>
+                <hr>
+                <ul>
+                    <li>
+                        {% for article in privacy_police %}
+                        <div class="wrapper__title-pp">{{ article.title }}</div>
+                        <br>
+                        <div class="wrapper__m-text">
+                            {{ article.text }}
+                        </div>
+                        <br>
+                        <br>
+                        {% endfor %}
+                    </li>
+                    <br>
+                    <hr>
+                </ul>
+            </div>
         </div>
-    </div>
 {% endblock %}

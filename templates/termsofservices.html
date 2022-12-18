@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Terms of services
+{% endblock %}
+
+{% block styles %}
+{% static 'css/privacy.css' %}
+{% endblock %}
+
+{% block content %}
+<div class="content">
+            <div class="content__empty"></div>
+            <div class="content__wrapper">
+                <div class="wrapper__m-title">Terms and Conditions of Use</div>
+                <hr>
+                <ul>
+                    <li>
+                        {% for article in terms %}
+                        <div class="wrapper__title-pp">{{ article.title }}</div>
+                        <br>
+                        <div class="wrapper__m-text">
+                            {{ article.text }}
+                        </div>
+                        <br>
+                        <br>
+                        {% endfor %}
+                    </li>
+                    <br>
+                    <hr>
+                </ul>
+            </div>
+        </div>
+{% endblock %}

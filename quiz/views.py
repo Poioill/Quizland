@@ -26,12 +26,28 @@ def materialview(request):
                                               'footer_info': FooterInformation.objects.all()})
 
 
-class PrivacyTemplateView(TemplateView):
-    template_name = 'privacy.html'
+def privacy(request):
+    return render(request, 'privacy.html', {
+        'footer_info': FooterInformation.objects.all(),
+        'privacy_police': PrivacyPolicy.objects.all(),
+    })
 
 
-class TermsOfServiceTemplateView(TemplateView):
-    template_name = 'service.html'
+def terms_of_service(request):
+    return render(request, 'termsofservices.html', {
+        'footer_info': FooterInformation.objects.all(),
+        'terms': TermsOfService.objects.all(),
+    })
+
+
+def about_us(request):
+    return render(request, 'about_us.html', {
+        'footer_info': FooterInformation.objects.all(),
+        'about_title': AboutUsTitle.objects.all(),
+        'about_reason': AboutUsReason.objects.all(),
+        'about_images': AboutUsImages.objects.all(),
+        'about_why': AboutUsWHY.objects.all(),
+    })
 
 
 class Categories(ListView):
@@ -59,6 +75,11 @@ class SubjectsDetailView(CustomSuccessMessageMixin, FormMixin, DetailView):
     context_object_name = 'quiz_items'
     form_class = CommentsForm
     success_msg = 'Added'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['footer_info'] = FooterInformation.objects.all()
+        return context
 
     def get_success_url(self):
         return reverse_lazy('subjects', kwargs={'pk': self.get_object().id})

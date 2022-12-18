@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About Us
+{% endblock %}
+
+{% block styles %}
+{% static 'css/about_us.css' %}
+{% endblock %}
+
+{% block content %}
+
+ <div class="content">
+            <div class="content__empty"></div>
+            <div class="content__wrapper">
+                {% for i in about_title %}
+                <div class="wrap__pre-title">{{ i.pre_title }}</div>
+                <div class="wrap__title">{{ i.title }}</div>
+                <br>
+                <div class="wrap__description">
+                    {{ i.text }}
+                </div>
+                {% endfor %}
+                <div class="wrap__pictures">
+                    <img src="/media/quiz_about_1.jpg/" alt="" width="800">
+                    <div class="pic__2">
+                        <img src="/media/quiz_2.jpg/" alt="" width="500">
+                        <img src="/media/quiz_3.jpg/" alt="" width="450">
+                    </div>
+                </div>
+                <br>
+                <div class="wrap__why">
+                    {% for i in about_why %}
+                    <div class="wrap__why-title">{{ i.title }}</div>
+                    <div class="wrap__why-text">{{ i.text }}</div>
+                    {% endfor %}
+                    <br><br>
+                    <ul>
+                        <li>
+                            {% for i in about_reason %}
+                            <hr class="why__hr">
+                            <br>
+                            <div class="why__reason">{{ i.title }}</div>
+                            <div class="why__reason-text">{{ i.text }}</div>
+                            <br>
+                            {% endfor %}
+                        </li>
+                    </ul>
+                    <br><br><br>
+                <img src="/media/quiz_4.jpg/" alt="" width="800">
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

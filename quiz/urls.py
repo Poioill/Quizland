@@ -7,6 +7,7 @@ urlpatterns = [
     path('', Categories.as_view(), name='category'),
     path('categories/<int:pk>/', SubjectsDetailView.as_view(), name='subjects'),
     path('materials/', views.materialview, name='materials'),
-    path('privacy/', PrivacyTemplateView.as_view(), name='privacy'),
-    path('t_service/', TermsOfServiceTemplateView.as_view(), name='t_service'),
+    path('about-us/', views.about_us, name='about_us'),
+    path('privacy/', views.privacy, name='privacy'),
+    path('t_service/', views.terms_of_service, name='t_service'),
 ]
