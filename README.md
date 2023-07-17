@@ -1,4 +1,3 @@
-# Quizland_new
-ahah
-quizland
-project
+# Quizland
+django project
+coursework #1
